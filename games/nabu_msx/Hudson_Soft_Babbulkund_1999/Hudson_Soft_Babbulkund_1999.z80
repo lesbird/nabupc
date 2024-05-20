@@ -1,6 +1,4 @@
-
 ; Bulk Conversion
-;
 ;
 ; Copyright (c) 2024 Brian Johnson.  All rights reserved.
 ;
@@ -13,7 +11,7 @@
 ;    notice, this list of conditions and the following disclaimer in the
 ;    documentation and/or other materials provided with the distribution.
 ;
-; THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS AND ANY EXPRESS OR
+; THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR
 ; IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
 ; OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
 ; IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -27,26 +25,24 @@
 .section .rodata.patches, "adr"
 .global rom_patch_table
 rom_patch_table:
-
 ; ---------------------------------------------
 ; Use Interrupt Mode 2
 ; ---------------------------------------------
 	.word 0x4FFA
 	.byte 1, 0x5e
 
-
-; ---------------------------------------------
-; Use Interrupt Mode 2
-; ---------------------------------------------
 	.word 0x5021
 	.byte 1, 0x5e
 
-
+	.word 0
+	.byte 0
+	
 .section .rodata.splash, "adr"
 .global splash_msg
 splash_msg:
-    .byte 6, 12, 20, "conversion by GTAMP"
+    .byte 6, 12, 19, "conversion by GTAMP"
     .byte 0, 0, 0
 
 .section .msx, "acrx"
 .incbin "Hudson_Soft_Babbulkund_1999.rom"
+
